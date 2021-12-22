@@ -5,9 +5,9 @@ function translateToGugu(zh = '') {
     const texts = zhHX16Array.map(i => {
         return Array.from(i).map(s => {
             if (s !== '0') {
-                return String.fromCharCode(parseInt('043E', 16)) + String.fromCharCode(parseInt('030' + s, 16)) + '古'
+                return String.fromCharCode(parseInt('043E', 16)) + String.fromCharCode(parseInt('030' + s, 16)) + '喜'
             } else {
-                return '咕'
+                return '嘻'
             }
         }).join('')
     })
@@ -16,10 +16,10 @@ function translateToGugu(zh = '') {
 function translateToZH(gugu = '') {
     const arrs = gugu.split(' ')
     const result = arrs.map(i => {
-        const r = i.match(/..古|咕/g)
+        const r = i.match(/..喜|嘻/g)
         if (r && r.length) {
             return r.map(t => {
-                if (t === '咕') {
+                if (t === '嘻') {
                     return '0'
                 } else {
                     const hx16 = t.charCodeAt(1).toString(16)
